@@ -6,8 +6,9 @@ library
   default-language:     Haskell2010
   hs-source-dirs:       src
   exposed-modules:      Lib
+  include-dirs:         cbits
+  c-sources:            cbits/foo.c
   ghc-options:          -Wall
-                        -Werror
                         -Wcompat
                         -Widentities
                         -Wincomplete-record-updates
@@ -26,7 +27,6 @@ executable c2hs-bug-demo
   hs-source-dirs:       app
   main-is:              Main.hs
   ghc-options:          -Wall
-                        -Werror
                         -Wcompat
                         -Widentities
                         -Wincomplete-record-updates
@@ -35,28 +35,6 @@ executable c2hs-bug-demo
                         --Wmissing-import-lists
                         -Wnoncanonical-monad-instances
                         -Wnoncanonical-monadfail-instances
-                        -Wpartial-fields
-                        -Wredundant-constraints
-                        -fdefer-typed-holes
-                        -rtsopts
-                        -threaded
-  build-depends:        base
-                      , c2hs-bug-demo
-
-test-suite tests
-  default-language:     Haskell2010
-  type:                 exitcode-stdio-1.0
-  hs-source-dirs:       test
-  main-is:              Spec.hs
-  ghc-options:          -Wall
-                        -Werror
-                        -Wcompat
-                        -Widentities
-                        -Wincomplete-record-updates
-                        -Wincomplete-uni-patterns
-                        --Wmissing-export-lists
-                        --Wmissing-import-lists
-                        -Wnoncanonical-monad-instances
                         -Wpartial-fields
                         -Wredundant-constraints
                         -fdefer-typed-holes
