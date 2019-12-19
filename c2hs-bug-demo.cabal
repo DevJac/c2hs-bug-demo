@@ -1,0 +1,66 @@
+cabal-version:          3.0
+name:                   c2hs-bug-demo
+version:                0.0.0.0
+
+library
+  default-language:     Haskell2010
+  hs-source-dirs:       src
+  exposed-modules:      Lib
+  ghc-options:          -Wall
+                        -Werror
+                        -Wcompat
+                        -Widentities
+                        -Wincomplete-record-updates
+                        -Wincomplete-uni-patterns
+                        --Wmissing-export-lists
+                        --Wmissing-import-lists
+                        -Wnoncanonical-monad-instances
+                        -Wnoncanonical-monadfail-instances
+                        -Wpartial-fields
+                        -Wredundant-constraints
+                        -fdefer-typed-holes
+  build-depends:        base
+
+executable c2hs-bug-demo
+  default-language:     Haskell2010
+  hs-source-dirs:       app
+  main-is:              Main.hs
+  ghc-options:          -Wall
+                        -Werror
+                        -Wcompat
+                        -Widentities
+                        -Wincomplete-record-updates
+                        -Wincomplete-uni-patterns
+                        --Wmissing-export-lists
+                        --Wmissing-import-lists
+                        -Wnoncanonical-monad-instances
+                        -Wnoncanonical-monadfail-instances
+                        -Wpartial-fields
+                        -Wredundant-constraints
+                        -fdefer-typed-holes
+                        -rtsopts
+                        -threaded
+  build-depends:        base
+                      , c2hs-bug-demo
+
+test-suite tests
+  default-language:     Haskell2010
+  type:                 exitcode-stdio-1.0
+  hs-source-dirs:       test
+  main-is:              Spec.hs
+  ghc-options:          -Wall
+                        -Werror
+                        -Wcompat
+                        -Widentities
+                        -Wincomplete-record-updates
+                        -Wincomplete-uni-patterns
+                        --Wmissing-export-lists
+                        --Wmissing-import-lists
+                        -Wnoncanonical-monad-instances
+                        -Wpartial-fields
+                        -Wredundant-constraints
+                        -fdefer-typed-holes
+                        -rtsopts
+                        -threaded
+  build-depends:        base
+                      , c2hs-bug-demo
