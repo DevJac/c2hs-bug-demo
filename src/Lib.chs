@@ -22,6 +22,6 @@ instance Storable Color where
 helloWorld :: IO ()
 helloWorld = showStorable $ Color 1 2 3 4
 
--- We'll call thise just to prove that Color is Storable
+-- We'll call this just to prove that Color is Storable
 showStorable :: (Storable a, Show a) => a -> IO ()
 showStorable = putStrLn . show
