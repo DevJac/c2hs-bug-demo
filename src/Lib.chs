@@ -6,10 +6,14 @@ import Foreign.Storable
 data Color = Color !Word8 !Word8 !Word8 !Word8 deriving (Show, Eq)
 
 instance Storable Color where
-  sizeOf = undefined
-  alignment = undefined
-  peek = undefined
-  poke = undefined
+  -- These type holes would crash at runtime,
+  -- but we're never going to reach runtime
+  -- because of a C2HS bug that causes a type error
+  -- at compile time.
+  sizeOf = _DEMO
+  alignment = _DEMO
+  peek = _DEMO
+  poke = _DEMO
 
 #include "foo.h"
 
